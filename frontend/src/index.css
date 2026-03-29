@@ -1,0 +1,331 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 16% 96%;
+    --foreground: 222 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 20% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 20% 12%;
+
+    --primary: 222 14% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 12% 93%;
+    --secondary-foreground: 222 20% 12%;
+
+    --muted: 220 12% 93%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 220 14% 89%;
+    --accent-foreground: 222 20% 12%;
+
+    --destructive: 0 65% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 222 14% 20%;
+
+    --radius: 0.5rem;
+
+    /* Surfaces */
+    --surface: 0 0% 100%;
+    --surface-raised: 220 16% 98%;
+    --surface-overlay: 0 0% 100%;
+    --surface-sunken: 220 14% 95%;
+
+    /* Status */
+    --status-pending: 220 10% 72%;
+    --status-running: 215 85% 55%;
+    --status-completed: 152 55% 42%;
+    --status-error: 0 65% 52%;
+
+    /* Chat */
+    --chat-user: 222 14% 20%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-assistant: 220 14% 95%;
+    --chat-assistant-foreground: 222 20% 12%;
+
+    /* Scores */
+    --score-high: 152 55% 42%;
+    --score-mid: 38 75% 50%;
+    --score-low: 0 65% 52%;
+
+    /* Evidence Explorer */
+    --ee-bg: 224 28% 6%;
+    --ee-surface: 224 22% 10%;
+    --ee-surface-raised: 224 20% 14%;
+    --ee-border: 224 16% 18%;
+    --ee-foreground: 220 14% 92%;
+    --ee-muted: 220 10% 52%;
+    --ee-glass: 224 20% 12% / 0.7;
+    --ee-node-query: 28 85% 55%;
+    --ee-node-claim: 215 75% 55%;
+    --ee-node-chunk: 152 55% 50%;
+    --ee-node-document: 270 55% 55%;
+    --ee-confidence: 152 55% 42%;
+
+    /* Logs */
+    --log-bg: 225 22% 8%;
+    --log-foreground: 152 45% 62%;
+    --log-muted: 220 10% 48%;
+    --log-timestamp: 215 35% 52%;
+
+    /* Tabs */
+    --tab-active: 222 14% 20%;
+    --tab-active-foreground: 0 0% 100%;
+    --tab-inactive: 220 12% 93%;
+    --tab-inactive-foreground: 220 10% 50%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 20% 12%;
+    --sidebar-primary: 222 14% 20%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 95%;
+    --sidebar-accent-foreground: 222 20% 12%;
+    --sidebar-border: 220 14% 90%;
+    --sidebar-ring: 222 14% 20%;
+  }
+
+  .dark {
+    --background: 224 22% 6%;
+    --foreground: 220 14% 92%;
+
+    --card: 224 20% 9%;
+    --card-foreground: 220 14% 92%;
+
+    --popover: 224 20% 9%;
+    --popover-foreground: 220 14% 92%;
+
+    --primary: 220 14% 92%;
+    --primary-foreground: 224 22% 6%;
+
+    --secondary: 224 16% 14%;
+    --secondary-foreground: 220 14% 92%;
+
+    --muted: 224 16% 14%;
+    --muted-foreground: 220 10% 52%;
+
+    --accent: 224 16% 17%;
+    --accent-foreground: 220 14% 92%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 220 14% 92%;
+
+    --border: 224 16% 16%;
+    --input: 224 16% 16%;
+    --ring: 220 14% 70%;
+
+    --surface: 224 20% 9%;
+    --surface-raised: 224 20% 11%;
+    --surface-overlay: 224 20% 13%;
+    --surface-sunken: 224 22% 6%;
+
+    --chat-user: 215 40% 30%;
+    --chat-user-foreground: 220 14% 92%;
+    --chat-assistant: 224 16% 14%;
+    --chat-assistant-foreground: 220 14% 92%;
+
+    --log-bg: 224 28% 4%;
+    --log-foreground: 152 45% 62%;
+    --log-muted: 220 10% 42%;
+    --log-timestamp: 215 30% 48%;
+
+    --tab-active: 220 14% 92%;
+    --tab-active-foreground: 224 22% 6%;
+    --tab-inactive: 224 16% 14%;
+    --tab-inactive-foreground: 220 10% 52%;
+
+    --sidebar-background: 224 20% 9%;
+    --sidebar-foreground: 220 14% 92%;
+    --sidebar-primary: 220 14% 92%;
+    --sidebar-primary-foreground: 224 22% 6%;
+    --sidebar-accent: 224 16% 14%;
+    --sidebar-accent-foreground: 220 14% 92%;
+    --sidebar-border: 224 16% 16%;
+    --sidebar-ring: 220 14% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Panel system */
+  .panel {
+    @apply bg-surface;
+  }
+
+  .panel-section {
+    @apply px-4 py-3;
+  }
+
+  .panel-section-bordered {
+    @apply px-4 py-3 border-b border-border;
+  }
+
+  .panel-title {
+    @apply text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-2;
+  }
+
+  /* Tab system */
+  .tab-bar {
+    @apply flex gap-1 p-1 bg-surface-sunken rounded-lg;
+  }
+
+  .tab-item {
+    @apply flex-1 text-xs font-medium py-1.5 px-3 rounded-md transition-all duration-200 cursor-pointer text-center;
+    color: hsl(var(--tab-inactive-foreground));
+    background: transparent;
+  }
+
+  .tab-item:hover {
+    background: hsl(var(--accent));
+  }
+
+  .tab-item-active {
+    background: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  }
+
+  .tab-item-active:hover {
+    background: hsl(var(--surface));
+  }
+
+  /* Log styling */
+  .log-text {
+    @apply font-mono text-[11px] leading-relaxed;
+    color: hsl(var(--log-foreground));
+  }
+
+  .log-timestamp {
+    @apply font-mono text-[11px];
+    color: hsl(var(--log-timestamp));
+  }
+
+  .log-muted {
+    @apply font-mono text-[11px];
+    color: hsl(var(--log-muted));
+  }
+
+  /* Status indicators */
+  .status-dot {
+    @apply w-1.5 h-1.5 rounded-full inline-block flex-shrink-0;
+  }
+
+  .status-dot-pending {
+    background-color: hsl(var(--status-pending));
+  }
+
+  .status-dot-running {
+    background-color: hsl(var(--status-running));
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
+
+  .status-dot-completed {
+    background-color: hsl(var(--status-completed));
+  }
+
+  /* Chunk cards */
+  .chunk-card {
+    @apply bg-surface border border-border rounded-lg p-3 transition-all duration-200 cursor-pointer;
+  }
+
+  .chunk-card:hover {
+    @apply shadow-sm;
+    border-color: hsl(var(--muted-foreground) / 0.3);
+    transform: translateY(-1px);
+  }
+
+  /* Typing animation */
+  .typing-dot {
+    @apply w-1.5 h-1.5 rounded-full;
+    background-color: hsl(var(--muted-foreground));
+    animation: typing-bounce 1.4s infinite ease-in-out both;
+  }
+
+  .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+  .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+  .typing-dot:nth-child(3) { animation-delay: 0s; }
+
+  /* File item */
+  .file-item {
+    @apply flex items-start gap-2.5 p-2.5 rounded-lg transition-all duration-150;
+  }
+
+  .file-item:hover {
+    background: hsl(var(--accent));
+  }
+
+  /* Input polished */
+  .input-polished {
+    @apply w-full bg-surface-raised border border-border rounded-lg px-3.5 py-3 text-sm text-foreground;
+    @apply placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-ring;
+    @apply disabled:opacity-40 disabled:cursor-not-allowed resize-none transition-all duration-200;
+  }
+
+  /* Badge */
+  .status-badge {
+    @apply inline-flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-full;
+  }
+
+  .status-badge-ready {
+    background: hsl(var(--status-completed) / 0.12);
+    color: hsl(var(--status-completed));
+  }
+
+  .status-badge-processing {
+    background: hsl(var(--status-running) / 0.12);
+    color: hsl(var(--status-running));
+  }
+
+  .status-badge-error {
+    background: hsl(var(--status-error) / 0.12);
+    color: hsl(var(--status-error));
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes stream-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stream-token {
+  animation: stream-in 0.1s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.25s ease-out forwards;
+}

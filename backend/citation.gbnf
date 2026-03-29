@@ -1,0 +1,15 @@
+root ::= answer
+
+answer ::= (segment ws)+
+
+segment ::= text citation? "." | text citation
+
+citation ::= "[" number "]"
+
+number ::= [0-9]+
+
+text ::= char+
+
+char ::= [^.\[\]]
+
+ws ::= " "*

@@ -1,0 +1,53 @@
+# ========================
+# Models (keep folder only)
+# ========================
+models/*
+!models/.gitkeep
+
+model_files/*
+!model_files/.gitkeep
+
+# ========================
+# llama.cpp (keep folder only)
+# ========================
+llama.cpp/*
+!llama.cpp/.gitkeep
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# virtual env
+myenv/
+venv/
+.venv/
+
+# ========================
+# Logs
+# ========================
+logs/*
+!logs/.gitkeep
+*.log
+
+# ========================
+# OS / Windows junk
+# ========================
+*Zone.Identifier*
+.DS_Store
+Thumbs.db
+
+# ========================
+# Local data
+# ========================
+data/*
+!data/.gitkeep
+
+# ========================
+# build / temp
+# ========================
+*.tmp
+*.cachellama.cpp/
